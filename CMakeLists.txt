@@ -290,31 +290,31 @@ endfunction()
 # Perform installation of kissfft library and development files
 #
 
-install(TARGETS kissfft EXPORT kissfft
-    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+# install(TARGETS kissfft EXPORT kissfft
+#     ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+#     LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+#     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
-install(FILES kiss_fft.h
-              kissfft.hh
-              kiss_fftnd.h
-              kiss_fftndr.h
-              kiss_fftr.h
-        DESTINATION "${PKGINCLUDEDIR}")
+# install(FILES kiss_fft.h
+#               kissfft.hh
+#               kiss_fftnd.h
+#               kiss_fftndr.h
+#               kiss_fftr.h
+#         DESTINATION "${PKGINCLUDEDIR}")
 
 set(KISSFFT_INSTALL_CMAKE "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
     CACHE FILEPATH "Install destination of kissfft cmake modules")
 mark_as_advanced(KISSFFT_INSTALL_CMAKE)
 
-install(EXPORT kissfft DESTINATION "${KISSFFT_INSTALL_CMAKE}"
-        NAMESPACE "kissfft::"
-        FILE "${PROJECT_NAME}-${KISSFFT_DATATYPE}${KISSFFT_EXPORT_SUFFIX}-targets.cmake")
+# install(EXPORT kissfft DESTINATION "${KISSFFT_INSTALL_CMAKE}"
+#         NAMESPACE "kissfft::"
+#         FILE "${PROJECT_NAME}-${KISSFFT_DATATYPE}${KISSFFT_EXPORT_SUFFIX}-targets.cmake")
 include(CMakePackageConfigHelpers)
 configure_package_config_file(kissfft-config.cmake.in kissfft-config.cmake
     INSTALL_DESTINATION "${KISSFFT_INSTALL_CMAKE}")
 write_basic_package_version_file(kissfft-config-version.cmake COMPATIBILITY AnyNewerVersion)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/kissfft-config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/kissfft-config-version.cmake"
-        DESTINATION "${KISSFFT_INSTALL_CMAKE}")
+# install(FILES "${CMAKE_CURRENT_BINARY_DIR}/kissfft-config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/kissfft-config-version.cmake"
+#         DESTINATION "${KISSFFT_INSTALL_CMAKE}")
 
 set(PKG_KISSFFT_DEFS)
 foreach(_def ${KISSFFT_COMPILE_DEFINITIONS})
