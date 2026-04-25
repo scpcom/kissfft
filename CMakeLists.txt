@@ -75,9 +75,9 @@ set(KISSFFT_OUTPUT_NAME "kissfft-${KISSFFT_DATATYPE}")
 # Validate KISSFFT_STATIC
 #
 
-if (BUILD_SHARED_LIBS AND KISSFFT_STATIC)
-    message(FATAL_ERROR "Conflicting CMake configuration: -DBUILD_SHARED_LIBS=ON and -DKISSFFT_STATIC=ON")
-endif()
+#if (BUILD_SHARED_LIBS AND KISSFFT_STATIC)
+#    message(FATAL_ERROR "Conflicting CMake configuration: -DBUILD_SHARED_LIBS=ON and -DKISSFFT_STATIC=ON")
+#endif()
 
 #
 # Enable BUILD_SHARED_LIBS for shared library build before
@@ -88,6 +88,7 @@ if (NOT KISSFFT_STATIC)
     set(BUILD_SHARED_LIBS ON)
     message(STATUS "Building shared library")
 else()
+    set(BUILD_SHARED_LIBS OFF)
     message(STATUS "Building static library")
 endif()
 
